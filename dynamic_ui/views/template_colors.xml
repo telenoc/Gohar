@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="template_colors_form" model="ir.ui.view">
+            <field name="name">template.colors.form</field>
+            <field name="model">template.colors</field>
+            <field name="arch" type="xml">
+                <form string="Dynamic Color Picker">
+                        <header>
+                            <button string="Save" type="object" name="execute" class="oe_highlight" />
+                        </header>
+                        <group>
+                            <group>
+                                <separator string="Basic Colors"/>
+                                <field name="basic_text_color" widget="custom_color"/>
+                            </group>
+                            <group>
+                                <separator string="Navigation Colors"/>
+                                <field name="navi_background" widget="custom_color"/>
+                                <field name="navi_fontcolor" widget="custom_color"/>
+                                <field name="navi_hover" widget="custom_color"/>
+                                <field name="navi_hover_fontcolor" widget="custom_color"/>
+                            </group>
+                            <group>
+                                <separator string="Buttons Colors"/>
+                                <field name="btn_primary_background" widget="custom_color"/>
+                                <field name="btn_primary_fontcolor" widget="custom_color"/>
+                            </group>
+                            <group>
+                                <separator string="Main Theme (Enterprise Only)"/>
+                                <field name="home_background" string="Theme Color" widget="custom_color"/>
+                            </group>
+                        </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="template_colors_action" model="ir.actions.act_window">
+                <field name="name">Dynamic Template Colors</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">template.colors</field>
+                <field name="view_mode">form</field>
+                <field name="target">inline</field>
+        </record>
+
+        <menuitem id="template_colors_menu" action="template_colors_action" name="Dynamic Template Colors" parent="base.menu_administration" sequence="2"/>
+    </data>
+</odoo>

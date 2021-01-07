@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <template id="assets_backend" name="Dynamic Backend UI Assets" inherit_id="web.assets_backend">
+        <xpath expr=".">
+            <script type="application/javascript" src="/dynamic_ui/static/src/js/widgets.js"/>
+            <t t-set="dynamic_template_colors" t-value="request.env['template.colors']" />
+            <link rel="stylesheet" type="text/scss" t-att-href="dynamic_template_colors.scss_dynamic_attachment()" />
+        </xpath>
+    </template>
+
+</odoo>
